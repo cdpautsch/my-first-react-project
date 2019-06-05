@@ -5,18 +5,18 @@
     "main": "index.js",
     "scripts": {
         "start": "webpack-dev-server --config ./webpack.config.js --mode development",
-        "start-node": "nodemon --config ./config/nodemon.json --watch src/server src/server/server.js",
+        "start-node": "nodemon --config ./nodemon.json --watch src/server src/server/server.js",
         "start-prod": "npm run build && node src/server/server.js",
         "start-client": "webpack-dev-server --mode development --devtool inline-source-map --hot",
         "dev": "concurrently \"npm run start-node\" \"npm run start-client\"",
-        "build": "npm run lint && npm test && webpack --config ./config/webpack.config.js --mode production",
-        "build-only": "webpack --config ./config/webpack.config.js --mode production",
+        "build": "npm run lint && npm test && webpack --config ./webpack.config.js --mode production",
+        "build-only": "webpack --config ./webpack.config.js --mode production",
         "lint": "npm run lint-code && npm run lint-css",
         "lint-code": "eslint src -c .eslintrc.json --ext js,jsx",
-        "lint-css": "stylelint \"./src/**/*.scss\" --config ./config/.stylelintrc.json --ignore-path ./config/.stylelintignore",
-        "lint-css-fix": "stylelint \"./src/**/*.scss\" --config ./config/.stylelintrc.json --ignore-path ./config/.stylelintignore --fix",
+        "lint-css": "stylelint \"./src/**/*.scss\"",
+        "lint-css-fix": "stylelint \"./src/**/*.scss\" --fix",
         "check-staged": "lint-staged",
-        "test": "jest --config ./config/jest.config.json",
+        "test": "jest --config ./jest.config.json",
         "test:watch": "npm test -- --watch"
     },
     "keywords": [
@@ -44,7 +44,7 @@
     },
     "lint-staged": {
         "src/**/*.{scss,sass,css}": [
-            "stylelint --config ./config/.stylelintrc.json --ignore-path ./config/.stylelintignore"
+            "stylelint"
         ],
         "src/**/*.{js,jsx}": [
             "eslint"
