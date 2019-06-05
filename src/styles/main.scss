@@ -1,0 +1,122 @@
+@charset "utf-8";
+@import 'theme';
+@import 'variables';
+@import 'mixins';
+@import 'cards';
+@import 'hangman';
+@import 'home';
+
+body {
+    background: $OffWhite;
+    font-family: 'Roboto', Arial, sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4 {
+    letter-spacing: 1px;
+    margin: 0.5rem 0.5rem 0.5rem 1rem;
+}
+
+img {
+    max-width: 100%;
+}
+
+.content {
+    display: block;
+    border: 2px solid $DarkBlue;
+    @include borderRadius($global-radius);
+    margin: $global-margin;
+    background: $White;
+}
+
+.navbar {
+    margin-bottom: 1rem;
+}
+
+.home {
+    * {
+        margin: $global-margin * 2;
+    }
+}
+
+.topbar {
+    text-align: center;
+
+    a {
+        margin: 0.5rem;
+        display: inline-block;
+        padding: 0.25rem 1rem;
+        background: $White;
+        color: $DarkBlue;
+        @include borderRadius($global-radius);
+        text-decoration: none;
+        border: 2px solid $DarkBlue;
+
+        &:hover,
+        &.active {
+            background: $DarkBlue;
+            color: $White;
+        }
+    }
+}
+
+div.color-bar {
+    display: block;
+    background: $DarkBlue;
+    height: 0.5rem;
+}
+
+button,
+input[type='submit'] {
+    border-width: 2px;
+    border-style: solid;
+    @include borderRadius($global-radius);
+    border-color: $AltGrey;
+    cursor: pointer;
+
+    &:hover {
+        border-color: $Grey;
+    }
+
+    &:disabled,
+    &:disabled:hover {
+        color: $MedGrey;
+        border-color: $AltGrey;
+        cursor: not-allowed;
+    }
+}
+
+.game-intro {
+    margin: 0.75rem;
+
+    p {
+        font-size: 0.875rem;
+    }
+}
+
+.conclusion {
+    text-align: center;
+    line-height: 2rem;
+
+    &.victory {
+        color: $DarkGreen;
+        font-weight: bold;
+    }
+
+    &.defeat {
+        color: $Red;
+    }
+
+    p {
+        font-size: 1.25rem;
+    }
+
+    button {
+        margin-bottom: 1rem;
+        min-width: 125px;
+        letter-spacing: 1px;
+        font-weight: bold;
+    }
+}
